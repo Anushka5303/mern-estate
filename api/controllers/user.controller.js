@@ -3,7 +3,9 @@ import User from "../models/user.model.js";
 import { errorHandler } from "../utils/error.js";
 
 export const test = (req, res) => {
-  res.json({ message: "Hello WOrld" });
+  res.json({
+    message: 'Api route is working!',
+  });
 };
 
 export const updateUser = async (req, res, next) => {
@@ -29,10 +31,6 @@ export const updateUser = async (req, res, next) => {
     );
 
     const { password, ...rest } = updatedUser._doc;
-    res.status(200).json({
-        success: true,
-        message: 'User updated successfully',
-        data: rest,
-      });
+    res.status(200).json(rest);
   } catch (error) {}
 };
